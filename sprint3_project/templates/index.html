@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard</title>
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">Dashboard Template</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#status_analysis">Status_analysis</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#prediction">prediction</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Page Content-->
+        <div class="container-fluid p-0">
+            <!-- About-->
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
+                    <h1 class="mb-0">
+                      Dashboard
+                        <span class="text-primary">Template</span>
+                    </h1>
+                    <div class="subheading mb-5">
+                        CODESTATES · SECTION3 PROJECT, MODELING · (010) ***-**** ·
+                        <a href="mailto:zena101096@naver.com">zena101096@naver.com</a>
+                    </div>
+                    <p class="lead mb-1">이 페이지는 한국의 서울, 경기도의 아파트 거래 내역을 집 값을 중심으로 분석한 결과와 해당 데이터에 따른 미래 집 값을 예측한 결과를 나타내는 페이지입니다.</p>
+                    <p class="lead-small mb-5">This page shows the results of analyzing apartment transaction details in Seoul and Gyeonggi-do, Korea, focusing on house prices, and predicting future house prices according to the data.</p>
+                    
+                    <div class="social-icons">
+                        <a class="social-icon" href="https://github.com/ttogle918/codestates_projects/tree/master/sprint3_project"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- status_analysis-->
+            <section class="resume-section" id="status_analysis">
+
+                <div class="resume-section-content">
+                    <h2 class="mb-5">status_analysis</h2>
+                    <a class="d-flex flex-column flex-md-row justify-content-between mb-5" href="http://localhost:3000/public/dashboard/5967a687-7962-4c74-9889-eb1076a7ca74">
+                      현황 분석 바로가기
+                    </a>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- prediction-->
+            <section class="resume-section" id="prediction">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">prediction</h2>
+                  <form method='post' action='/'>
+                    <div class="input-group mt-3 mb-3">
+                      <div class="form-group">
+                        동/읍/면을 선택하세요
+                        <select class="form-control" id='select_dong'>
+                          <option>금곡동</option>
+                          <option>다산1동</option>
+                          <option>다산2동</option>
+                          <option>별내동</option>
+                          <option>별내면</option>
+                          <option>수동면</option>
+                          <option>양정동</option>
+                          <option>오남읍</option>
+                          <option>와부읍</option>
+                          <option>조안면</option>
+                          <option>진건읍</option>
+                          <option>진접읍</option>
+                          <option>퇴계원면</option>
+                          <option>평내동</option>
+                          <option>호평동</option>
+                          <option>화도읍</option>
+                          <option>화도읍동부출장소</option>
+                        </select>
+                      </div>
+                      <p/>
+                      <div class="form-group">
+                        면적을 선택하세요
+                        <select class="form-control" id='select_area'>
+                          <option>43㎡이하(13평 이하)</option>
+                          <option>43㎡초과 99.17㎡이하(~30평)</option>
+                          <option>99.17㎡초과 119㎡이하(~36평)</option>
+                          <option>119㎡초과</option>
+                        </select>
+                      </div>
+                      <p/>
+                      <div class="form-group">
+                        건축 연도를 선택하세요
+                        <select class="form-select">
+                          <option>5년 이내</option>
+                          <option>상관없음</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div>
+                      <input type=submit value='등록' name='submit_btn'>
+                    </div>
+                    <div>예측 값은 {{ prediction }}입니다.
+                      (probability: {{ probability}}%). 
+                    </div>
+
+                  </form>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Skills-->
+            <section class="resume-section" id="skills">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Skills</h2>
+                    <div class="subheading mb-3">Programming Languages & Tools</div>
+
+                    webpage : bootstrap(open-source 활용)
+                    <ul class="list-inline dev-icons">    
+                        <li class="list-inline-item"><i class="fab fa-html5"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-js-square"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-angular"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-react"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-node-js"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-sass"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-less"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-wordpress"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-gulp"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-grunt"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-npm"></i></li>
+                    </ul>
+                    sqlite, DBeaver, Python, Colab, github, flask, metabase
+                    <ul class="list-inline dev-icons">
+                      <li class="list-inline-item"><img src="static/assets/img/sqlite.png" alt="sqlite" width=48></li>
+                      <li class="list-inline-item"><img src="static/assets/img/DBeaver.png" alt="dbeaver" width=48></li>
+                      <li class="list-inline-item"><img src="static/assets/img/python.png" alt="python" width=48></li>
+                      <li class="list-inline-item"><img src="static/assets/img/colab.png" alt="colab" width=48></li>
+                      <li class="list-inline-item"><img src="static/assets/img/github.png" alt="github" width=48></li>
+                      <li class="list-inline-item"><img src="static/assets/img/flask.png" alt="flask" width=48></li>
+                      <li class="list-inline-item"><img src="static/assets/img/metabase.png" alt="metabase" width=48></li>
+
+                  </ul>
+                  
+                    <div class="subheading mb-3">Workflow</div>
+                    <ul class="fa-ul mb-0">
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            sample data로 colab에서 모델링
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            API data load, DB에 insert 반복
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Metabase로 현황 분석
+                        </li>
+                        
+                        <li>
+                          <span class="fa-li"><i class="fas fa-check"></i></span>
+                          Flask, bootstrap으로 웹페이지 제작
+                        </li>
+                        <li>
+                          <span class="fa-li"><i class="fas fa-check"></i></span>
+                          model pickling하여 app 에 적용
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Agile Development & Scrum
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <hr class="m-0" />
+
+            
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{{url_for('static', filename='js/scripts.js') }}"></script>
+    </body>
+</html>
